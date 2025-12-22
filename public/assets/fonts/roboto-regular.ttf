@@ -1,0 +1,10 @@
+// This file is a placeholder for the Roboto Regular font file (roboto-regular.ttf).
+// You will need to download the actual font file from a reputable source and place it in this location.
+
+// For example, you can download the font from Google Fonts:
+// https://fonts.google.com/specimen/Roboto
+
+// Once you have downloaded the font file, rename it to "roboto-regular.ttf" and place it in this directory.
+
+// This font file is essential for displaying text on your website.
+// Make sure to import it correctly in your CSS files or stylesheets to ensure proper rendering.

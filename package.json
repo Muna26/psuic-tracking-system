@@ -1,0 +1,70 @@
+{
+  "name": "washing-machine-shop-website",
+  "version": "1.0.0",
+  "description": "A user-friendly website for a washing machine shop, built with React, Next.js, Tailwind CSS, and more.",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write \"/.{js,jsx,ts,tsx,css,md}\"",
+    "test": "jest",
+    "e2e": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spectra-ai-codegen/washing-machine-shop-website.git"
+  },
+  "author": "Spectra.codes",
+  "license": "AGPL-3.0",
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@types/styled-components": "^5.1.25",
+    "autoprefixer": "^10.4.23",
+    "babel-eslint": "^10.1.0",
+    "cypress": "^12.0.0",
+    "eslint": "^8.41.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "jest": "^29.6.0",
+    "next": "^13.4.0",
+    "postcss": "^8.5.6",
+    "prettier": "^3.0.0",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.16.2",
+    "dotenv": "^16.1.0",
+    "next-auth": "^4.20.2",
+    "next-i18next": "^15.4.3",
+    "prisma": "^4.12.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-query": "^3.39.3",
+    "react-router-dom": "^6.11.0",
+    "stripe": "^12.1.0",
+    "twilio": "^4.11.0",
+    "workbox-webpack-plugin": "^6.5.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
