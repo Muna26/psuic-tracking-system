@@ -20,15 +20,13 @@ const Header = () => {
     <header className="sticky top-0 z-50 glass transition-all duration-300">
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
         <Link href="/" className="flex items-center gap-3">
-          <div className="bg-primary-500 p-2 rounded-lg">
-            <Image
-              src="/assets/icons/logo.svg"
-              alt="Washing Machine Shop Logo"
-              width={32}
-              height={32}
-              className="invert brightness-0"
-            />
-          </div>
+          <Image
+            src="/assets/icons/logo-design.png"
+            alt="PSUIC Tracking System Logo"
+            width={60}
+            height={60}
+            className="object-contain"
+          />
           <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-900">
             {t("shopName")}
           </span>

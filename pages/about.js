@@ -16,7 +16,6 @@ const About = () => {
           {t("aboutUsTitle")}
         </h2>
         <AboutUsSection />
-        <Testimonials />
       </div>
     </section>
   );
