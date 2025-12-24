@@ -23,7 +23,7 @@ const HeroBanner = () => {
 
       <div className="container mx-auto px-4 text-center z-10 relative mt-16">
         <span className="inline-block py-1 px-3 rounded-full bg-primary-500/20 text-primary-100 border border-primary-400/30 text-sm font-semibold mb-6 backdrop-blur-sm">
-          {t("shopName")}
+          {t("systemName")}
         </span>
         <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
           {t("heroBannerTitle")}
@@ -32,7 +32,7 @@ const HeroBanner = () => {
           {t("heroBannerDescription")}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/products" className="btn-primary flex items-center justify-center gap-2 text-lg px-8 py-3">
+          <Link href="/repairs/create" className="btn-primary flex items-center justify-center gap-2 text-lg px-8 py-3">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
             {t("heroBannerButton")}
           </Link>

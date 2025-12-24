@@ -28,7 +28,7 @@ const Header = () => {
             className="object-contain"
           />
           <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-900">
-            {t("shopName")}
+            {t("systemName")}
           </span>
         </Link>
 
@@ -36,10 +36,8 @@ const Header = () => {
           <ul className="flex space-x-8 items-center">
             {[
               { href: "/", label: "home" },
-              { href: "/products", label: "products" },
-              { href: "/repairs", label: "repairs" },
-              { href: "/about", label: "about" },
-              { href: "/blog", label: "blog" },
+              { href: "/repairs/create", label: "reportIssue" },
+              { href: "/dashboard", label: "dashboard" },
             ].map((link) => (
               <li key={link.href}>
                 <Link
@@ -92,11 +90,8 @@ const Header = () => {
             <ul className="flex flex-col space-y-4">
               {[
                 { href: "/", label: "home" },
-                { href: "/products", label: "products" },
-                { href: "/repairs", label: "repairs" },
-                { href: "/about", label: "about" },
-                { href: "/blog", label: "blog" },
-                { href: "/contact", label: "contact" },
+                { href: "/repairs", label: "reportIssue" },
+                { href: "/dashboard", label: "dashboard" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link

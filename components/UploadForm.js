@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useTranslation } from 'next-i18next';
-import { handleUpload } from '../utils/handleUpload';
+import { uploadFile } from '../utils/uploadFile';
 
 const UploadForm = () => {
   const { t } = useTranslation('common');
@@ -25,7 +25,7 @@ const UploadForm = () => {
     setUploadSuccess(false);
 
     try {
-      await handleUpload(selectedFile);
+      await uploadFile(selectedFile);
       setUploadSuccess(true);
       setSelectedFile(null);
       if (fileInputRef.current) fileInputRef.current.value = '';
@@ -64,8 +64,8 @@ const UploadForm = () => {
         type="submit"
         disabled={isUploading || !selectedFile}
         className={`w-full py-4 rounded-xl font-bold text-white shadow-lg transition-all transform hover:-translate-y-1 ${isUploading || !selectedFile
-            ? 'bg-gray-400 cursor-not-allowed'
-            : 'bg-gradient-to-r from-green-500 to-green-600 hover:shadow-green-500/30'
+          ? 'bg-gray-400 cursor-not-allowed'
+          : 'bg-gradient-to-r from-green-500 to-green-600 hover:shadow-green-500/30'
           }`}
       >
         {isUploading ? (

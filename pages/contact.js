@@ -20,6 +20,9 @@ const Contact = () => {
     setSubmitError(null);
     setSubmitSuccess(false);
 
+
+
+
     try {
       await handleContactForm({ name, email, message });
       setSubmitSuccess(true);

@@ -1,72 +1,84 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
-model Product {
-  id          Int      @id @default(autoincrement())
-  name        String
-  slug        String   @unique
-  description String
-  image       String
-  brand       String
-  type        String
-  capacity    String
-  price       Decimal
-  createdAt   DateTime @default(now()) @map("created_at")
-  updatedAt   DateTime @default(now()) @updatedAt @map("updated_at")
-
-  @@map("products")
+enum Role {
+  STUDENT
+  IT_SUPPORT
+  ADMIN
 }
 
-model Booking {
-  id               Int      @id @default(autoincrement())
-  name             String
-  machineModel     String   @map("machine_model")
-  issueDescription String   @map("issue_description")
-  appointmentDate  DateTime @map("appointment_date")
-  createdAt        DateTime @default(now()) @map("created_at")
-  updatedAt        DateTime @default(now()) @updatedAt @map("updated_at")
-
-  @@map("bookings")
+enum TicketStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
 }
 
-model Testimonial {
-  id        Int      @id @default(autoincrement())
-  content   String
-  name      String
-  company   String?
-  image     String?
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
-
-  @@map("testimonials")
+enum Urgency {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
 }
 
-model BlogPost {
-  id        Int      @id @default(autoincrement())
-  slug      String   @unique
-  title     String
-  content   String
-  author    String
-  date      DateTime
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
-
-  @@map("blog_posts")
+enum EquipmentStatus {
+  OPERATIONAL
+  DAMAGED
+  UNDER_REPAIR
+  LOST
 }
 
-model ContactMessage {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String
-  message   String
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+model User {
+  id              Int       @id @default(autoincrement())
+  username        String    @unique
+  email           String    @unique
+  role            Role      @default(STUDENT)
+  reportedTickets Ticket[]  @relation("Reporter")
+  assignedTickets Ticket[]  @relation("Assignee")
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
 
-  @@map("contact_messages")
+model Ticket {
+  id             Int          @id @default(autoincrement())
+  title          String
+  description    String       @db.Text
+  status         TicketStatus @default(OPEN)
+  urgency        Urgency      @default(MEDIUM)
+  room_code      String
+  equipment_code String?
+  evidence_image String?
+
+  reporter_id Int
+  reporter    User @relation("Reporter", fields: [reporter_id], references: [id])
+
+  assignee_id Int?
+  assignee    User? @relation("Assignee", fields: [assignee_id], references: [id])
+
+  equipment   Equipment? @relation(fields: [equipment_code], references: [code])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Equipment {
+  id            Int             @id @default(autoincrement())
+  code          String          @unique // Unique QR code content
+  name          String
+  room_location String
+  status        EquipmentStatus @default(OPERATIONAL)
+  image_url     String?
+  tickets       Ticket[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
